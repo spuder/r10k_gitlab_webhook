@@ -10,6 +10,6 @@ Usage
 ruby r10k_gitlab_webhook 8000
 
 
-![screenshort](https://www.dropbox.com/s/eqlrvn3qt39cnrf/Screenshot%202014-09-16%2012.08.25.png?dl=0)
+![screenshort](http://cl.ly/image/0p3U1H2C1q0q/Screenshot%202014-09-16%2012.08.25.png)
 
 https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/web_hooks/web_hooks.md
