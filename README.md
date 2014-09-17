@@ -21,7 +21,4 @@ A few init scripts have been placed in the [contrib directory](https://github.co
 Generated using [pleaserun](https://github.com/jordansissel/pleaserun)
 
 
-## Limitations
-
-Requires ruby 1.9
 
