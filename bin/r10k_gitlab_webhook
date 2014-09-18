@@ -1,22 +1,28 @@
 #!/usr/bin/env ruby
 require 'webrick'
 
-server = WEBrick::HTTPServer.new(:Port => ARGV.first)
-filename = ARGV[1]
+defined? ARGV[1]
+  log_location = ARGV[1]
+else
+  log_location = /var/log/
+end
+
+
+server = WEBrick::HTTPServer.new(
+  :Port => ARGV.first,
+  :Logger => WEBrick::Log.new("log_location/r10k_gitlab_webhook_server.log",WEBrick::Log::INFO),
+  :AccessLog => [[File.open("log_location/r10k_gitlab_webhook_access.log",'w'),WEBrick::AccessLog::COMBINED_LOG_FORMAT]]
+)
+
+r10k_comman_log = WEBrick::Log.new('r10k_gitlab_webhook.log',WEBrick::Log::DEBUG)
 
 server.mount_proc '/' do |req, res|
-  target = open(filename, 'a')
-  theTime = Time.new
+
   r10kstatus = `sudo r10k deploy environment -pv 2>&1`
-  target.write( theTime)
-  target.write( "\n")
-  target.write( r10kstatus )
-  target.write( "\n")
-  target.close
+  r10k_comman_log.debug( r10kstatus )
 end
 
 trap 'INT' do
   server.shutdown
-  target.close
 end
 server.start
