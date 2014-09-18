@@ -2,12 +2,21 @@
 require 'webrick'
 
 server = WEBrick::HTTPServer.new(:Port => ARGV.first)
+filename = ARGV[1]
+
 server.mount_proc '/' do |req, res|
-  r10kstatus = system( "sudo r10k deploy environment -pv warn" )
-  File.write('/var/log/r10k_gitlab_webhook.log', r10kstatus )
+  target = open(filename, 'a')
+  theTime = Time.new
+  r10kstatus = `sudo r10k deploy environment -pv 2>&1`
+  target.write( theTime)
+  target.write( "\n")
+  target.write( r10kstatus )
+  target.write( "\n")
+  target.close
 end
 
-trap 'INT' do 
-  server.shutdown 
+trap 'INT' do
+  server.shutdown
+  target.close
 end
 server.start

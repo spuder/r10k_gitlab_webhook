@@ -8,7 +8,16 @@ When a request is recieved, it executes the following command
 ##Usage
 
     gem install r10k_gitlab_webhook
-    r10k_gitlab_webhook 8000
+    sudo -u git -H r10k_gitlab_webhook 8000 /home/git/r10k_gitlab_webhook.log
+
+You don't have to run the script as the user git. Running as root is discouraged
+Make sure the log file is in a location that is writeable by the user running the script
+
+## Test
+
+You can test that the script is working by running the following
+
+    curl -X POST http://foo.example.com:8000
 
 ![screenshort](http://cl.ly/image/0p3U1H2C1q0q/Screenshot%202014-09-16%2012.08.25.png)
 
