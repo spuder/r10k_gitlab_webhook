@@ -30,10 +30,6 @@ Log locations can be specified. By default they are:
 ####Run as root, port 9000, no logging
 
     sudo r10k_gitlab_webhook 9000 /dev/null
-    
-####Run as user 'git', port 8000, log to /home/git/  
-
-    sudo -u git -H r10k_gitlab_webhook 8000 /home/git
 
 
 ## Test

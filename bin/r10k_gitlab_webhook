@@ -18,7 +18,7 @@ r10k_comman_log = WEBrick::Log.new("#{log_location}/r10k_gitlab_webhook.log",WEB
 
 server.mount_proc '/' do |req, res|
 
-  r10kstatus = `sudo r10k deploy environment -pv 2>&1`
+  r10kstatus = `r10k deploy environment -pv 2>&1`
   r10k_comman_log.debug( r10kstatus )
 end
 

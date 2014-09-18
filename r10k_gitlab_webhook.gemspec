@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'r10k_gitlab_webhook'
-  s.version     = '0.1.2'
+  s.version     = '0.1.3'
   s.date        = '2014-09-16'
   s.summary     = "r10k web hook"
   s.description = "Web hook to trigger r10k deploy"
