@@ -1,4 +1,5 @@
 # r10k gitlab webhook
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/spuder/r10k_gitlab_webhook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A ruby gem that starts a webrick webservice and listens for requests. 
 When a POST is recieved, it executes the following command
